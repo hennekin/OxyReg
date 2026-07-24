@@ -1,8 +1,22 @@
+use std::io::BufRead;
+use std::io::BufReader;
 use std::net::TcpListener;
 use std::net::TcpStream;
 
-fn handle_client(_stream: TcpStream) {
-    // hier müsste Zeileweise gelesen werden
+// can be tested by using netcat and sending some text to the socḱet:
+// "nc 127.0.0.1 7000"
+
+fn handle_client(stream: TcpStream) {
+    let buf = BufReader::new(stream);
+    for line in buf.lines() {
+        match line {
+            Ok(line) => println!("Empfangen: {}", line),
+            Err(e) => {
+                eprintln!("Fehler beim Lesen: {}", e);
+                break;
+            }
+        }
+    }
 }
 
 fn main() {
