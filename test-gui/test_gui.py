@@ -5,7 +5,7 @@ TCP Tic-Tac-Toe — a socket-practice board.
 The GUI is a pure display: every mark on the board arrives as one JSON line
 over TCP. No game rules, no turns, no winner — just draw and reset.
 
-Run:    python tcp_tictactoe.py [port]
+Run:    python test_gui.py [port]
 Talk:   printf '{"cmd":"set","cell":4,"mark":"X"}\n' | nc 127.0.0.1 6543
 """
 
