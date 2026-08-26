@@ -1,0 +1,9 @@
+@startuml
+participant Client as C
+participant Server as S
+
+C -> S: {cmd : r,\nname : service1,\nip : 192.168.0.2, \nport: 12345}
+S -> C: {cmd: ...}
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
